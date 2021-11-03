@@ -1,0 +1,109 @@
+1. Finding average and sum:
+
+using System;
+namespace LearningCSharp2
+{
+    internal class AverageSumBase
+    {
+        public static void Main(string[] args)
+        {
+            int num, sum = 0, avg = 0, i;
+            Console.WriteLine("Enter a number");
+            num = Convert.ToInt32(Console.ReadLine());
+            for (i = 1; i <= num; i++)
+            {
+                sum = sum + i;
+                avg = sum / num;
+            }
+            Console.WriteLine("Sum of numbers is: " + sum);
+            Console.WriteLine("Avg of numbers is: " + avg);
+        }
+    }
+}
+
+2. Find whether it's working day or holiday
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LearningCSharp2
+{
+    class holiday
+    {
+        public static void Main(string[] args)
+        {
+            int num;
+            Console.WriteLine("Enter a number between range 0-7");
+            Console.WriteLine("Enter a number");
+            num = Convert.ToInt32(Console.ReadLine());
+            if(num>0 && num<=5)
+            {
+                Console.WriteLine("It's Working day");
+            }
+            else if(num>5 && num<=7)
+            {
+                Console.WriteLine("It's Holiday");
+            }
+            else
+            {
+                Console.WriteLine("INVALID NUMBER");
+            }
+        }
+    }
+}
+
+3. Finding Prime number
+
+using System;
+namespace LearningCSharp2
+{
+    internal class PrimeBase
+    {
+        public static void Main(string[] args)
+        {
+            int num, m, i;
+            Console.WriteLine("Enter a number");
+            num = Convert.ToInt32(Console.ReadLine());
+            m = num / 2;
+            for (i = 1; i <= m; i++)
+            {
+                if (num % i == 0)
+                {
+                     Console.WriteLine(true);
+                }
+            }
+            if(num%i!=0)
+            {
+                Console.WriteLine(false);
+            }
+        }
+    }
+}
+
+4. Descending Order Program
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment
+{
+    class DescendingOrder
+    {
+        public static void Main(string[] args)
+        {
+            int i;
+            Console.WriteLine("Numbers in descending order:");
+            for (i=10;i>=1;i--)
+            {
+                Console.WriteLine(i);   
+            }
+        }
+    }
+}
+ 

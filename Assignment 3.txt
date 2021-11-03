@@ -1,0 +1,225 @@
+1. Write a program for library card using interface
+
+In library:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Interface
+{
+    public interface IStudent 
+    {
+        void candidate();
+    }
+    public class EmployeeRegister : IStudent
+    {
+        public void candidate()
+        {
+            string LibCardNumber;
+            int Year;
+            string reg;
+            Console.WriteLine("Enter Library card number");
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+            LibCardNumber = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+            Console.WriteLine("Enter year");
+            Year = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Lirary card number is: " + LibCardNumber);
+            Console.WriteLine("Year of study is: " + Year);
+            Console.WriteLine("Do you want to register as part time student ?,press y for yes and n for no");
+            reg=Console.ReadLine();
+            if(reg=="y")
+            {
+              Console.WriteLine("You are registered as part time student");
+            }
+            else if(reg=="n")
+            {
+              Console.WriteLine("You are not registered as part time student");
+            }
+        }
+    }
+}
+
+
+In main method:
+
+using Interface;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment
+{
+    public class PartTimeStudent
+    {
+        public static void Main()
+        {
+            IStudent istudent;
+            istudent = new EmployeeRegister();
+            istudent.candidate();
+        }
+    }
+}
+
+(b) Another way of writing:
+
+Istudent InterfCE:
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Myclasslib1
+{
+    interface IStudent
+    {
+        public string LibCardNumber { set; get; }
+        public int Year { get; set; }
+
+         
+        public string  NoPartTimeStudent();
+       public  string PartTimeStudents();
+
+
+    }
+    public class PartTimeStudent : IStudent
+    {
+        public string LibCardNumber { get ; set ; }
+        public int Year { get; set; }
+
+
+     
+        public string NoPartTimeStudent()
+        {
+            return "I dont want Parttime studet";
+        }
+
+        public string PartTimeStudents()
+        {
+            return "I  want Parttime studet";
+        }
+    }
+}
+
+
+MAINMETHOD:
+
+ private static void InterfaceSample2()
+        {
+            PartTimeStudent student = new PartTimeStudent();
+            student.LibCardNumber = "123456789";
+            student.Year = 2021;
+            student.NoPartTimeStudent();
+            student.PartTimeStudents();
+            Console.WriteLine(student.PartTimeStudents());
+        }
+
+
+2. Write a program to deposit and withdraw amount
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Myclasslib1
+{
+    interface BankDetailes
+    {
+        public int AccountNumber { get; set; }
+        public string AccountHolderName { get; set; }
+
+        public int Amount { get; set; }
+        public double BalanceAmount { get; set; }
+
+        bool Deposit(int Amount);
+        bool Withdraw(int Amount);
+
+    }
+    public class SavingsAccount : BankDetailes
+    {
+        public int AccountNumber { get; set; }
+        public string AccountHolderName { get; set; }
+        public int Amount { get; set; }
+        public double BalanceAmount { get; set; }
+        public double Interest;
+        public double MinimumBlance;
+
+        public bool Deposit(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool Withdraw(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public double Addinterest()
+        {
+
+            return Interest;
+        }
+    }
+    public class ODAccount : BankDetailes
+    {
+        public int AccountNumber { get ; set; }
+        public string AccountHolderName { get ; set ; }
+        public int Amount { get ; set; }
+        public double BalanceAmount { get ; set ; }
+        public double ODInterest;
+        public double ODLimit;
+
+        public bool Deposit(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool Withdraw(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public double AddODinterest()
+        {
+
+            return ODInterest;
+
+        }
+    }
+}
+ 
